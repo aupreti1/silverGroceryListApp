@@ -4,19 +4,19 @@ import React from "react";
 import { View, Text, Button, Image, StyleSheet } from "react-native";
 
 //CREATE Landing function
-function Landing() {
+function Landing({navigation}) {
     //RETURN the content
     return (
         //CREATE a container to hold content
         <View style={styles.container}>
             {/* CREATE the image logo */}
-            <Image style={styles.tinyLogo} source={{ uri: "https://cdn.pixabay.com/photo/2016/03/31/23/37/bird-1297727_1280.png" }} />
+            <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2016/03/31/23/37/bird-1297727_1280.png" }} />
             {/* TEXT element for heading */}
             <Text style={styles.textStyle}>Silver's Grocery List</Text>
             {/* CREATE a container a container for Buttons */}
             <View style={styles.buttonContainer}>
                 {/* CREATE button for Log In */}
-                <Button color='#0f3d3d' title="Log In" />
+                <Button color='#0f3d3d' title="Log In" onPress={() => navigation.navigate("LandingPage")}/>
                 {/* ADDING a space between the buttons */}
                 <View style={styles.spaceStyle}></View>
                 {/* CREATE button for Registration */}
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         //END Container Style
     },
     //Start Logo Styles
-    tinyLogo: {
+    logoStyle: {
         //Image Height
         height: 250,
         //Image Width
