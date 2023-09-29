@@ -2,9 +2,12 @@
 import React from "react";
 //IMPORT components we will use
 import { View, Text, Button, Image, StyleSheet } from "react-native";
+//Import Use Naviagation Hook
+import {useNavigation} from '@react-navigation/native';
 
 //CREATE Landing function
-function Landing({navigation}) {
+function Landing() {
+    const pageNavigation = useNavigation();
     //RETURN the content
     return (
         //CREATE a container to hold content
@@ -16,7 +19,7 @@ function Landing({navigation}) {
             {/* CREATE a container a container for Buttons */}
             <View style={styles.buttonContainer}>
                 {/* CREATE button for Log In */}
-                <Button color='#0f3d3d' title="Log In" onPress={() => navigation.navigate("LandingPage")}/>
+                <Button color='#0f3d3d' title="Log In" onPress={() => pageNavigation.navigate("SignInPage")}/>
                 {/* ADDING a space between the buttons */}
                 <View style={styles.spaceStyle}></View>
                 {/* CREATE button for Registration */}
