@@ -23,7 +23,7 @@ function Landing() {
                 {/* ADDING a space between the buttons */}
                 <View style={styles.spaceStyle}></View>
                 {/* CREATE button for Registration */}
-                <Button color='#0f3d3d' title="Register" />
+                <Button color='#0f3d3d' title="Register" onPress={() => pageNavigation.navigate("RegisterPage")}/>
                 {/* END Button Container */}
             </View>
             {/* END Content Container */}
@@ -67,8 +67,6 @@ const styles = StyleSheet.create({
         color: '#0f3d3d',
         //Text size
         fontSize: 35,
-        //Font family stye
-        fontFamily: 'arial',
         //Adding Space at the Bottom
         bottom: 10,
         //END Text Style

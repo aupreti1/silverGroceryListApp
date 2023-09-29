@@ -4,8 +4,13 @@ import * as React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 //Import createStackNavigator function
 import { createStackNavigator } from "@react-navigation/stack";
+
 import Landing from "./pages/Landing";
 import SignIn from "./pages/SignIn";
+import Register from "./pages/Register";
+// import  from "./pages/Register";
+// import Register from "./pages/Register";
+
 
 const Stack = createStackNavigator();
 
@@ -20,6 +25,10 @@ const ProjectNavigation = () => {
                 <Stack.Screen
                     name="SignInPage"
                     component={SignIn}
+                />
+                <Stack.Screen 
+                    name="RegisterPage"
+                    component={Register}
                 />
             </Stack.Navigator>
         </NavigationContainer>

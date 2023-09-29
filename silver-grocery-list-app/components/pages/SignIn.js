@@ -57,16 +57,12 @@ const styles = StyleSheet.create({
         color: '#0f3d3d',
         //Text size
         fontSize: 40,
-        //Font family stye
-        fontFamily: 'arial',
     },
     formTextStyles: {
         //Color for the text
         color: '#0f3d3d',
         //Text size
         fontSize: 18,
-        //Font family stye
-        fontFamily: 'arial',
     },
     input: {
       height: 40,
