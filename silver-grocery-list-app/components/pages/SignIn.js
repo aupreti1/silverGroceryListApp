@@ -88,5 +88,5 @@ const styles = StyleSheet.create({
     //END Styles
 });
 
-//EXPORT Landing
+//EXPORT SignIn
 export default SignIn;

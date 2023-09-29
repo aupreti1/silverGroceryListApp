@@ -23,3 +23,6 @@ const ProjectNavigation = () => {
         </NavigationContainer>
     );
 }
+
+//EXPORT Navigation
+export default ProjectNavigation;
