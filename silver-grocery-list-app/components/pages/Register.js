@@ -4,7 +4,7 @@ import React from "react";
 import { View, Text, Button, TextInput, StyleSheet } from "react-native";
 
 //CREATE Landing function
-function SignIn() {
+function Register() {
   const [text, onChangeText] = React.useState();
     //RETURN the content
     return (
