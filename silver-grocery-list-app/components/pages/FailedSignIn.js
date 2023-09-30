@@ -1,28 +1,22 @@
 //IMPORT react
 import React from "react";
 //IMPORT components we will use
-import { View, Text, Button, TextInput, StyleSheet, Image, Platform, KeyboardAvoidingView} from "react-native";
-import {useNavigation} from '@react-navigation/native';
+import { View, Text, Button, StyleSheet, Platform, KeyboardAvoidingView } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 //CREATE Forgot function
-function Forgot() {
-  const [groupNameText, onChangeGroupText] = React.useState("");
-  const [emailText, onChangeEmailText] = React.useState("");
-
+function FailedSignIn() {
   const pageNavigation = useNavigation();
+
   //RETURN the content
   return (
     //CREATE a container to hold content
-    <KeyboardAvoidingView keyboardVerticalOffset={190} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
-        <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2013/07/12/18/31/treasure-map-153425_640.png" }} />
+    <KeyboardAvoidingView keyboardVerticalOffset={130} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
       <View style={styles.formStyles}>
-        <Text style={styles.formTextStyles}>Group Name *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeGroupText} value={groupNameText} />
-        <Text style={styles.formTextStyles}>Email *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeEmailText} value={emailText} />
+        <Text style={styles.formTextStyles}>Email Of The Person You Want To Invite</Text>
       </View>
       <View style={styles.passLogButtons}>
-        <Button title="SUBMIT" color='#0f3d3d' onPress={() => pageNavigation.navigate("LandingPage")}/>
+        <Button title="Back to Log In" color='#0f3d3d' onPress={() => pageNavigation.navigate("SignInPage")}/>
       </View>
     </KeyboardAvoidingView>
     //END return
@@ -91,4 +85,4 @@ const styles = StyleSheet.create({
 });
 
 //EXPORT SignIn
-export default Forgot;
+export default FailedSignIn;

@@ -1,27 +1,28 @@
 //IMPORT react
 import React from "react";
 //IMPORT components we will use
-import { View, Text, Button, TextInput, StyleSheet, Image } from "react-native";
-
+import { View, Text, Button, TextInput, StyleSheet, Image, Platform, KeyboardAvoidingView } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 //CREATE Forgot function
 function Invite() {
-  const [text, onChangeText] = React.useState("");
+  const [inviteEmailText, onChangeInviteEmailText] = React.useState("");
+  const pageNavigation = useNavigation();
 
   //RETURN the content
   return (
     //CREATE a container to hold content
-    <View style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={130} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
         <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2022/01/01/09/14/bird-6907231_640.png" }} />
       <View style={styles.formStyles}>
         <Text style={styles.formTextStyles}>Email Of The Person You Want To Invite</Text>
-        <TextInput style={styles.input} onChangeText={onChangeText} value={text} />
+        <TextInput style={styles.input} onChangeText={onChangeInviteEmailText} value={inviteEmailText} />
       </View>
       <View style={styles.passLogButtons}>
-        <Button title="SKIP" color='#0f3d3d' />
+        <Button title="SKIP" color='#0f3d3d' onPress={() => pageNavigation.navigate("ListPage")}/>
         <Button title="INVITE" color='#0f3d3d' />
       </View>
-    </View>
+    </KeyboardAvoidingView>
     //END return
   );
   //END Landing Function

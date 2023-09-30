@@ -1,18 +1,30 @@
 //IMPORT react
 import React from "react";
 //IMPORT components we will use
-import { View, Text, Button, TextInput, StyleSheet, Switch } from "react-native";
+import { View, Text, Button, TextInput, StyleSheet, Image, Switch, Platform, KeyboardAvoidingView } from "react-native";
+//IMPORT Use Naviagation Hook
 import {useNavigation} from '@react-navigation/native';
-//CREATE Landing function
+
+//CREATE Register function
 function Register() {
-  const [text, onChangeText] = React.useState("");
+  //CREATE the state for group name 
+  const [groupNameText, onChangeGroupText] = React.useState("");
+  //CREATE the state for user name 
+  const [userNameText, onChangeUserText] = React.useState("");
+  //CREATE the state for email
+  const [emailText, onChangeEmailText] = React.useState("");
+  //CREATE the state for password
+  const [passwordText, onChangePasswordText] = React.useState("");
+
   const [isSwitched, onChangeSwitch] = React.useState(false);
   const pageNavigation = useNavigation();
+
 
   //RETURN the content
   return (
     //CREATE a container to hold content
-    <View style={styles.container}>
+    <KeyboardAvoidingView keyboardVerticalOffset={320} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
+      <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2016/04/01/09/10/boat-1299188_640.png" }} />
       <View style={styles.switchContainer}>
         <Switch
           trackColor={{ false: '#767577', true: '#00857a' }}
@@ -26,18 +38,18 @@ function Register() {
       </View>
       <View style={styles.formStyles}>
         <Text style={styles.formTextStyles}>Group Name *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeText} value={text} />
+        <TextInput style={styles.input} onChangeText={onChangeGroupText} value={groupNameText} />
         <Text style={styles.formTextStyles}>User Name *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeText} value={text} />
+        <TextInput style={styles.input} onChangeText={onChangeUserText} value={userNameText} />
         <Text style={styles.formTextStyles}>Email *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeText} value={text} />
+        <TextInput style={styles.input} onChangeText={onChangeEmailText} value={emailText} />
         <Text style={styles.formTextStyles}>Password *</Text>
-        <TextInput style={styles.input} onChangeText={onChangeText} value={text} />
+        <TextInput style={styles.input} onChangeText={onChangePasswordText} value={passwordText} secureTextEntry/>
       </View>
-      <View style={styles.passLogButtons}>
+      <View style={styles.registerButton}>
         <Button title="REGISTER" color='#0f3d3d' onPress={() => pageNavigation.navigate("InvitePage")}/>
       </View>
-    </View>
+    </KeyboardAvoidingView>
     //END return
   );
   //END Landing Function
@@ -78,9 +90,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  passLogButtons: {
-    flexDirection: "row",
-    top: 40,
+  registerButton: {
+    top: 15,
   },
   spaceStyle: {
     //Width of space
@@ -88,8 +99,19 @@ const styles = StyleSheet.create({
     //Height of space
     height: 20,
   },
+  logoStyle: {
+    //Image Height
+    height: 250,
+    //Image Width
+    width: 250,
+    //Resize the Image
+    resizeMode: 'contain',
+    //Adding space at the bottom
+    bottom: 35,
+    //END Logo Container
+  },
   //END Styles
 });
 
-//EXPORT SignIn
+//EXPORT Register
 export default Register;
