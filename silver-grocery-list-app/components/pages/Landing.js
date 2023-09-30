@@ -19,11 +19,11 @@ function Landing() {
             {/* CREATE a container a container for Buttons */}
             <View style={styles.buttonContainer}>
                 {/* CREATE button for Log In */}
-                <Button color='#0f3d3d' title="Log In" onPress={() => pageNavigation.navigate("SignInPage")}/>
+                <Button color='#0f3d3d' title="LOG IN" onPress={() => pageNavigation.navigate("SignInPage")}/>
                 {/* ADDING a space between the buttons */}
                 <View style={styles.spaceStyle}></View>
                 {/* CREATE button for Registration */}
-                <Button color='#0f3d3d' title="Register" onPress={() => pageNavigation.navigate("RegisterPage")}/>
+                <Button color='#0f3d3d' title="REGISTER" onPress={() => pageNavigation.navigate("RegisterPage")}/>
                 {/* END Button Container */}
             </View>
             {/* END Content Container */}
