@@ -2,30 +2,43 @@
 import React from "react";
 //IMPORT components we will use
 import { View, Text, Button, TextInput, StyleSheet, Image, Platform, KeyboardAvoidingView } from "react-native";
+//IMPORT Use Navigation Hook
 import { useNavigation } from '@react-navigation/native';
 
-//CREATE Forgot function
+//CREATE Invite function
 function Invite() {
+  //CREATE the user state for the email invite input
   const [inviteEmailText, onChangeInviteEmailText] = React.useState("");
+  //CREATE the page navigation hook to track navigation state
   const pageNavigation = useNavigation();
 
   //RETURN the content
   return (
-    //CREATE a container to hold content
+    //WHEN Keybaord is open - IF the platform is ios add padding behavior, if not add height behavior
     <KeyboardAvoidingView keyboardVerticalOffset={130} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
+        {/* IMAGE logo element */}
         <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2022/01/01/09/14/bird-6907231_640.png" }} />
+      {/* Container for the form */}
       <View style={styles.formStyles}>
+         {/* TEXT so the user knows what to put in the input */}
         <Text style={styles.formTextStyles}>Email Of The Person You Want To Invite</Text>
+         {/* INPUT for the email invite */}
         <TextInput style={styles.input} onChangeText={onChangeInviteEmailText} value={inviteEmailText} />
+       {/* END form container */}
       </View>
-      <View style={styles.passLogButtons}>
+       {/* Container for the Buttons */}
+      <View style={styles.skipInviteButtons}>
+         {/* BUTTON to NOT Invite another user and go to list page */}
         <Button title="SKIP" color='#0f3d3d' onPress={() => pageNavigation.navigate("ListPage")}/>
+         {/* BUTTON to Invite another user */}
         <Button title="INVITE" color='#0f3d3d' />
+       {/* END buttons container */}
       </View>
+     {/* END keyboard container */}
     </KeyboardAvoidingView>
     //END return
   );
-  //END Landing Function
+  //END Invite Function
 }
 
 //CREATE styles
@@ -43,14 +56,6 @@ const styles = StyleSheet.create({
     paddingBottom:100,
     //END Container Style
   },
-  switchContainer: {
-    flexDirection: "row",
-    bottom: 30,
-  },
-  switchText: {
-    color: '#0f3d3d',
-    fontSize: 18,
-  },
   formTextStyles: {
     //Color for the text
     color: '#0f3d3d',
@@ -64,7 +69,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  passLogButtons: {
+  skipInviteButtons: {
     flexDirection: "row",
     top: 40,
   },
@@ -88,5 +93,5 @@ const styles = StyleSheet.create({
   //END Styles
 });
 
-//EXPORT SignIn
+//EXPORT Invite
 export default Invite;

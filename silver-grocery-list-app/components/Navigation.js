@@ -109,7 +109,7 @@ const ProjectNavigation = () => {
                     }}
                 //END invite page stack
                 />
-                {hasUser ? <Stack.Screen
+                {/* {hasUser ? <Stack.Screen
                     name="ListPage"
                     component={ListPage}
                     options={{
@@ -130,7 +130,7 @@ const ProjectNavigation = () => {
                         headerTintColor: '#0f3d3d'
                     }}
                 //END sign in page stack
-                />}
+                />} */}
             </Stack.Navigator>
         </NavigationContainer>
     );

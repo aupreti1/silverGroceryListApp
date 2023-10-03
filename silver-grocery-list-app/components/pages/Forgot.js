@@ -2,32 +2,48 @@
 import React from "react";
 //IMPORT components we will use
 import { View, Text, Button, TextInput, StyleSheet, Image, Platform, KeyboardAvoidingView} from "react-native";
+//Import Use Naviagation Hook
 import {useNavigation} from '@react-navigation/native';
 
 //CREATE Forgot function
 function Forgot() {
+  //CREATE the user state for the group name input
   const [groupNameText, onChangeGroupText] = React.useState("");
+  //CREATE the user state for email input
   const [emailText, onChangeEmailText] = React.useState("");
 
+  //CREATE the page navigation hook to track navigation state
   const pageNavigation = useNavigation();
+
   //RETURN the content
   return (
-    //CREATE a container to hold content
+    //WHEN Keybaord is open - IF the platform is ios add padding behavior, if not add height behavior
     <KeyboardAvoidingView keyboardVerticalOffset={190} behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
+        {/* IMAGE for the logo */}
         <Image style={styles.logoStyle} source={{ uri: "https://cdn.pixabay.com/photo/2013/07/12/18/31/treasure-map-153425_640.png" }} />
+      {/* Container for the form */}
       <View style={styles.formStyles}>
+        {/* TEXT for group name */}
         <Text style={styles.formTextStyles}>Group Name *</Text>
+        {/* INPUT for the froup name */}
         <TextInput style={styles.input} onChangeText={onChangeGroupText} value={groupNameText} />
+        {/* TEXT for the email */}
         <Text style={styles.formTextStyles}>Email *</Text>
+        {/* INPUT for the email */}
         <TextInput style={styles.input} onChangeText={onChangeEmailText} value={emailText} />
+      {/* END input container */}
       </View>
-      <View style={styles.passLogButtons}>
+      {/* Container for the submit button */}
+      <View style={styles.submitButtons}>
+        {/* BUTTON for submit */}
         <Button title="SUBMIT" color='#0f3d3d' onPress={() => pageNavigation.navigate("LandingPage")}/>
+      {/* END button container */}
       </View>
+    {/* END Keyboard container */}
     </KeyboardAvoidingView>
     //END return
   );
-  //END Landing Function
+  //END Forgot Function
 }
 
 //CREATE styles
@@ -45,14 +61,6 @@ const styles = StyleSheet.create({
     paddingBottom:100,
     //END Container Style
   },
-  switchContainer: {
-    flexDirection: "row",
-    bottom: 30,
-  },
-  switchText: {
-    color: '#0f3d3d',
-    fontSize: 18,
-  },
   formTextStyles: {
     //Color for the text
     color: '#0f3d3d',
@@ -66,7 +74,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  passLogButtons: {
+  submitButtons: {
     flexDirection: "row",
     top: 40,
   },
@@ -90,5 +98,5 @@ const styles = StyleSheet.create({
   //END Styles
 });
 
-//EXPORT SignIn
+//EXPORT Forgot
 export default Forgot;
