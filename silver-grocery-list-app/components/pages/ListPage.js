@@ -5,6 +5,7 @@ import { Text, StyleSheet, Platform, KeyboardAvoidingView } from "react-native";
 
 //CREATE ListPage function
 function ListPage() {
+  //const { hasUser } = React.useContext(AuthContext);
   //RETURN the content
   return (
     //WHEN Keyboard is open - IF the platform is ios add padding behavior, if not add height behavior

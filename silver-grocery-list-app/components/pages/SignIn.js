@@ -19,6 +19,7 @@ function SignIn() {
 
   //CREATE the page navigation hook to track navigation state
   const pageNavigation = useNavigation();
+  //const { hasUser } = React.useContext(AuthContext);
 
   //RETURN the content
   return (
