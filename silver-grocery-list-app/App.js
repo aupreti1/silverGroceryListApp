@@ -1,17 +1,15 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
+import {useState} from "react";
 import ProjectNavigation from "./components/Navigation.js";
-//import React from "react";
+import {AuthContext} from "./components/Authentication.js";
 
-// export const AuthContext = React.createContext({
-//   hasUser: false,
-//   setUser: () => { }
-// });
 
 export default function App() {
+
+  const [hasUser, setUser] = useState(false);
+
   return (
-    //<AuthContext.Provider value={{ hasUser, setUser }}>
+    <AuthContext.Provider value={{hasUser, setUser}}>
       <ProjectNavigation/>
-    //</AuthContext.Provider>
+    </AuthContext.Provider>
   );
 }
