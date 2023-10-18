@@ -4,7 +4,6 @@ import {AuthContext} from "./components/Authentication.js";
 
 
 export default function App() {
-
   const [hasUser, setUser] = useState(false);
 
   return (
