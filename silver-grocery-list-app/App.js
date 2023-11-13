@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { registerRootComponent } from 'expo';
 import ProjectNavigation from "./components/Navigation.js";
 import {AuthContext} from "./components/Authentication.js";
 
@@ -12,3 +13,5 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
+
+registerRootComponent(App);
